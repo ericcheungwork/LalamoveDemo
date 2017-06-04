@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1B0F06ACC25023B8E80F5C0 /* libPods-LalamoveDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C5C7B8152B825F2C2D66F /* libPods-LalamoveDemo.a */; };
 		D3C7D1E91EE4060A00CA181F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1E81EE4060A00CA181F /* AppDelegate.swift */; };
 		D3C7D1EB1EE4060A00CA181F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1EA1EE4060A00CA181F /* ViewController.swift */; };
 		D3C7D1EE1EE4060A00CA181F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C7D1EC1EE4060A00CA181F /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		D3C7D1F31EE4060A00CA181F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C7D1F11EE4060A00CA181F /* LaunchScreen.storyboard */; };
 		D3C7D1FE1EE4060A00CA181F /* LalamoveDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1FD1EE4060A00CA181F /* LalamoveDemoTests.swift */; };
 		D3C7D2091EE4060B00CA181F /* LalamoveDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D2081EE4060B00CA181F /* LalamoveDemoUITests.swift */; };
+		D3C7D2171EE40D4300CA181F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D3C7D2161EE40D4300CA181F /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070C5C7B8152B825F2C2D66F /* libPods-LalamoveDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LalamoveDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD365B86C0144BE4BCAD9806 /* Pods-LalamoveDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LalamoveDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C12A36D212D3A071C03622AF /* Pods-LalamoveDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LalamoveDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D3C7D1E51EE4060A00CA181F /* LalamoveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LalamoveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C7D1E81EE4060A00CA181F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C7D1EA1EE4060A00CA181F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		D3C7D2041EE4060A00CA181F /* LalamoveDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LalamoveDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C7D2081EE4060B00CA181F /* LalamoveDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LalamoveDemoUITests.swift; sourceTree = "<group>"; };
 		D3C7D20A1EE4060B00CA181F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3C7D2161EE40D4300CA181F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B0F06ACC25023B8E80F5C0 /* libPods-LalamoveDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1F63777B4CBEA65BE18C00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				070C5C7B8152B825F2C2D66F /* libPods-LalamoveDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7032DDB1055C16CF6E9C2FFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C12A36D212D3A071C03622AF /* Pods-LalamoveDemo.debug.xcconfig */,
+				AD365B86C0144BE4BCAD9806 /* Pods-LalamoveDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D3C7D1DC1EE4060A00CA181F = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,9 @@
 				D3C7D1FC1EE4060A00CA181F /* LalamoveDemoTests */,
 				D3C7D2071EE4060A00CA181F /* LalamoveDemoUITests */,
 				D3C7D1E61EE4060A00CA181F /* Products */,
+				7032DDB1055C16CF6E9C2FFA /* Pods */,
+				1A1F63777B4CBEA65BE18C00 /* Frameworks */,
+				D3C7D2161EE40D4300CA181F /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3C7D20D1EE4060B00CA181F /* Build configuration list for PBXNativeTarget "LalamoveDemo" */;
 			buildPhases = (
+				D12B85E8A62C837AFFD194CC /* [CP] Check Pods Manifest.lock */,
 				D3C7D1E11EE4060A00CA181F /* Sources */,
 				D3C7D1E21EE4060A00CA181F /* Frameworks */,
 				D3C7D1E31EE4060A00CA181F /* Resources */,
+				1E1E96C0D7B34586AC12C13E /* [CP] Embed Pods Frameworks */,
+				5DF3EBB5021EE52AFD08FC61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,6 +267,7 @@
 			files = (
 				D3C7D1F31EE4060A00CA181F /* LaunchScreen.storyboard in Resources */,
 				D3C7D1F01EE4060A00CA181F /* Assets.xcassets in Resources */,
+				D3C7D2171EE40D4300CA181F /* Podfile in Resources */,
 				D3C7D1EE1EE4060A00CA181F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +287,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E1E96C0D7B34586AC12C13E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DF3EBB5021EE52AFD08FC61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D12B85E8A62C837AFFD194CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3C7D1E11EE4060A00CA181F /* Sources */ = {
@@ -413,10 +492,12 @@
 		};
 		D3C7D20E1EE4060B00CA181F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C12A36D212D3A071C03622AF /* Pods-LalamoveDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SMP5B2V6JL;
 				INFOPLIST_FILE = LalamoveDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lalamove.LalamoveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,10 +507,12 @@
 		};
 		D3C7D20F1EE4060B00CA181F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD365B86C0144BE4BCAD9806 /* Pods-LalamoveDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SMP5B2V6JL;
 				INFOPLIST_FILE = LalamoveDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lalamove.LalamoveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +597,7 @@
 				D3C7D20F1EE4060B00CA181F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3C7D2101EE4060B00CA181F /* Build configuration list for PBXNativeTarget "LalamoveDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +606,7 @@
 				D3C7D2121EE4060B00CA181F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3C7D2131EE4060B00CA181F /* Build configuration list for PBXNativeTarget "LalamoveDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +615,7 @@
 				D3C7D2151EE4060B00CA181F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
