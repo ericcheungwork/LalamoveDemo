@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1B0F06ACC25023B8E80F5C0 /* libPods-LalamoveDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 070C5C7B8152B825F2C2D66F /* libPods-LalamoveDemo.a */; };
+		90C7EFB40D632D8AE095969A /* Pods_LalamoveDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADE82708471B5B194DA4DFF /* Pods_LalamoveDemo.framework */; };
 		D3C7D1E91EE4060A00CA181F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1E81EE4060A00CA181F /* AppDelegate.swift */; };
 		D3C7D1EB1EE4060A00CA181F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1EA1EE4060A00CA181F /* ViewController.swift */; };
 		D3C7D1EE1EE4060A00CA181F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C7D1EC1EE4060A00CA181F /* Main.storyboard */; };
@@ -16,6 +16,7 @@
 		D3C7D1FE1EE4060A00CA181F /* LalamoveDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1FD1EE4060A00CA181F /* LalamoveDemoTests.swift */; };
 		D3C7D2091EE4060B00CA181F /* LalamoveDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D2081EE4060B00CA181F /* LalamoveDemoUITests.swift */; };
 		D3C7D2171EE40D4300CA181F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D3C7D2161EE40D4300CA181F /* Podfile */; };
+		D3C7D2191EE41BF700CA181F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D2181EE41BF700CA181F /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		070C5C7B8152B825F2C2D66F /* libPods-LalamoveDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LalamoveDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ADE82708471B5B194DA4DFF /* Pods_LalamoveDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LalamoveDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD365B86C0144BE4BCAD9806 /* Pods-LalamoveDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LalamoveDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C12A36D212D3A071C03622AF /* Pods-LalamoveDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LalamoveDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D3C7D1E51EE4060A00CA181F /* LalamoveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LalamoveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +53,8 @@
 		D3C7D2041EE4060A00CA181F /* LalamoveDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LalamoveDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C7D2081EE4060B00CA181F /* LalamoveDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LalamoveDemoUITests.swift; sourceTree = "<group>"; };
 		D3C7D20A1EE4060B00CA181F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3C7D2161EE40D4300CA181F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D3C7D2161EE40D4300CA181F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D3C7D2181EE41BF700CA181F /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B0F06ACC25023B8E80F5C0 /* libPods-LalamoveDemo.a in Frameworks */,
+				90C7EFB40D632D8AE095969A /* Pods_LalamoveDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +86,7 @@
 		1A1F63777B4CBEA65BE18C00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				070C5C7B8152B825F2C2D66F /* libPods-LalamoveDemo.a */,
+				9ADE82708471B5B194DA4DFF /* Pods_LalamoveDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,6 +109,7 @@
 				D3C7D1E61EE4060A00CA181F /* Products */,
 				7032DDB1055C16CF6E9C2FFA /* Pods */,
 				1A1F63777B4CBEA65BE18C00 /* Frameworks */,
+				D3C7D2181EE41BF700CA181F /* Log.swift */,
 				D3C7D2161EE40D4300CA181F /* Podfile */,
 			);
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				D3C7D1EB1EE4060A00CA181F /* ViewController.swift in Sources */,
 				D3C7D1E91EE4060A00CA181F /* AppDelegate.swift in Sources */,
+				D3C7D2191EE41BF700CA181F /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +503,7 @@
 				INFOPLIST_FILE = LalamoveDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lalamove.LalamoveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
