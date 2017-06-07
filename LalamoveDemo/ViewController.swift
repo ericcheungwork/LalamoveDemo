@@ -98,7 +98,12 @@ class ViewController: UIViewController {
             itemLabel.frame = CGRect(x: 0, y: itemImageView.frame.size.height, width: itemView.frame.size.width, height: itemLabelHeight)
             
             itemImageView.backgroundColor = UIColor.lightGray
+            itemImageView.contentMode = .scaleAspectFill
+            itemImageView.clipsToBounds = true
+            
             itemLabel.backgroundColor = UIColor.white
+            
+            updateImage(anImageView: itemImageView, urlString: singleItem["imageUrl"] as! String)
             
             itemLabel.text = singleItem["description"] as! String
             
@@ -110,6 +115,8 @@ class ViewController: UIViewController {
             itemView.addSubview(itemLabel)
             
             scrollViewContentView.addSubview(itemView)
+            
+            
             
             if index%2 == 0 {   //e.g. index is 0, 2, 4...
                 dlog(message:"index is \(index)")
@@ -129,15 +136,11 @@ class ViewController: UIViewController {
         
         scrollView.addSubview(scrollViewContentView)
         scrollView.contentSize = scrollViewContentView.frame.size
-        
-//        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-//        self.view.addSubview(imageView)
-        
-//        fetchImage()
+
     }
     
-    private func fetchImage() {
-        let imageURL = URL(string: "http://placekitten.com.s3.amazonaws.com/homepage-samples/200/287.jpg")
+    func updateImage(anImageView:UIImageView, urlString:String) {
+        let imageURL = URL(string: urlString)
         var image: UIImage?
         if let url = imageURL {
 
@@ -147,8 +150,8 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async {
                     if imageData != nil {
                         image = UIImage(data: imageData as! Data)
-                        self.imageView.image = image
-                        self.imageView.sizeToFit()
+                        anImageView.image = image
+                        
                     } else {
                         image = nil
                     }
