@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             case .success(_):
                 if let data = response.result.value{
                     
-                    let result: [Any] = data as! [Any]
+                    let result: [[String:Any]] = data as! [[String:Any]]
                     
                     
                     print(data)
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         //...
     }
     
-    func generateInterface(receivedResult:[Any]) {
+    func generateInterface(receivedResult:[[String:Any]]) {
 //        print("result: \(receivedResult[0])")
         
         scrollView.backgroundColor = UIColor.orange
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         var startingPositionY:CGFloat = marginBetweenItems
         
         var index = 0
-        for singleItem:Any in receivedResult {
+        for singleItem:[String:Any] in receivedResult {
             print("singleItem: \(singleItem)")
             
             var itemWidthOrHeight:CGFloat = ((screenSize.width-60.0)/2.0)
@@ -98,9 +98,13 @@ class ViewController: UIViewController {
             itemLabel.frame = CGRect(x: 0, y: itemImageView.frame.size.height, width: itemView.frame.size.width, height: itemLabelHeight)
             
             itemImageView.backgroundColor = UIColor.lightGray
-            itemLabel.backgroundColor = UIColor.darkGray
+            itemLabel.backgroundColor = UIColor.white
             
-            itemLabel.text = singleItem["description"]
+            itemLabel.text = singleItem["description"] as! String
+            
+            itemLabel.font = UIFont(name: "HelveticaNeue-Light", size: 12)
+            itemLabel.numberOfLines = 0
+            itemLabel.textAlignment = .center
             
             itemView.addSubview(itemImageView)
             itemView.addSubview(itemLabel)
