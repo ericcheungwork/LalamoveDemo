@@ -87,7 +87,23 @@ class ViewController: UIViewController {
             
             var itemView: UIView = UIView()
             itemView.frame = CGRect(x: startingPositionX, y: startingPositionY, width: itemWidthOrHeight, height: itemWidthOrHeight)
-            itemView.backgroundColor = UIColor.blue
+            itemView.backgroundColor = UIColor.white
+            
+            var itemImageView: UIImageView = UIImageView()
+            var itemLabel: UILabel = UILabel()
+            
+            var itemLabelHeight: CGFloat = 30.0
+            
+            itemImageView.frame = CGRect(x: 0, y: 0, width: itemView.frame.size.width, height: itemView.frame.size.height - itemLabelHeight)
+            itemLabel.frame = CGRect(x: 0, y: itemImageView.frame.size.height, width: itemView.frame.size.width, height: itemLabelHeight)
+            
+            itemImageView.backgroundColor = UIColor.lightGray
+            itemLabel.backgroundColor = UIColor.darkGray
+            
+            itemLabel.text = singleItem["description"]
+            
+            itemView.addSubview(itemImageView)
+            itemView.addSubview(itemLabel)
             
             scrollViewContentView.addSubview(itemView)
             
