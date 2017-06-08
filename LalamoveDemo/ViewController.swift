@@ -47,6 +47,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
                     
                     let result: [[String:Any]] = data as! [[String:Any]]
                     
+                    UserDefaults.standard.set(result, forKey: "allItems")
                     
                     print(data)
                     
@@ -57,7 +58,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
             case .failure(_):
                 print(response.result.error)
                 
-                self.showErrorMessage()
+                dlog(message: "can't load the server data")
+                if let result = UserDefaults.standard.array(forKey: "allItems") as? [[String: Any]] {
+                    
+                    dlog(message: "use local data")
+                    self.generateInterface(receivedResult: result)
+                    
+                } else {
+                    self.showErrorMessage()
+                }
+                
+                
                 break
                 
             }
@@ -73,7 +84,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
 
     func showErrorMessage() {
-        //...
+        let actionSheetController: UIAlertController = UIAlertController(title: "Network Error", message: "Can't connect to server", preferredStyle: .alert)
+        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
+
+        }
+        actionSheetController.addAction(okAction)
+        self.present(actionSheetController, animated: true, completion: nil)
     }
     
     func generateInterface(receivedResult:[[String:Any]]) {
