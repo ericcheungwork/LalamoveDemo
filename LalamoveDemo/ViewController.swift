@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var imageView: UIImageView = UIImageView()
     var scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
     
+    var mainLabel:UILabel = UILabel()
+    var blackView:UIView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -74,7 +77,7 @@ class ViewController: UIViewController {
     func generateInterface(receivedResult:[[String:Any]]) {
 //        print("result: \(receivedResult[0])")
         
-        scrollView.backgroundColor = UIColor.orange
+//        scrollView.backgroundColor = UIColor.orange
         self.view.addSubview(scrollView)
         scrollView.isScrollEnabled = true
         
@@ -91,7 +94,7 @@ class ViewController: UIViewController {
             
             var itemView: UIView = UIView()
             itemView.frame = CGRect(x: startingPositionX, y: startingPositionY, width: itemWidthOrHeight, height: itemWidthOrHeight)
-            itemView.backgroundColor = UIColor.white
+            //itemView.backgroundColor = UIColor.white
             
             var itemImageView: UIImageView = UIImageView()
             var itemLabel: UILabel = UILabel()
@@ -101,12 +104,12 @@ class ViewController: UIViewController {
             itemImageView.frame = CGRect(x: 0, y: 0, width: itemView.frame.size.width, height: itemView.frame.size.height - itemLabelHeight)
             itemLabel.frame = CGRect(x: 0, y: itemImageView.frame.size.height, width: itemView.frame.size.width, height: itemLabelHeight)
             
-            itemImageView.backgroundColor = UIColor.lightGray
+            //itemImageView.backgroundColor = UIColor.lightGray
             itemImageView.contentMode = .scaleAspectFill
             itemImageView.clipsToBounds = true
             itemImageView.tag = itemImageViewTagBase + index
             
-            itemLabel.backgroundColor = UIColor.white
+            //itemLabel.backgroundColor = UIColor.white
             
             updateImage(anImageView: itemImageView, urlString: singleItem["imageUrl"] as! String)
             
@@ -179,7 +182,7 @@ class ViewController: UIViewController {
     func tappedItemOverlayButton(aButton:UIButton) {
         dlog(message: "#\(aButton.tag) Button pressed")
         
-        var blackView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        blackView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         blackView.backgroundColor = UIColor.black.withAlphaComponent(0)
         self.view.addSubview(blackView)
         
@@ -210,7 +213,7 @@ class ViewController: UIViewController {
         
         
         //main label
-        var mainLabel:UILabel = UILabel(frame: CGRect(x: mainImageViewFrameAfterAnimation.origin.x, y: mainImageViewFrameAfterAnimation.origin.y + mainImageViewFrameAfterAnimation.size.height + marginBetweenItems*2, width: mainImageViewFrameAfterAnimation.size.width, height: itemLabelHeight))
+        mainLabel = UILabel(frame: CGRect(x: mainImageViewFrameAfterAnimation.origin.x, y: mainImageViewFrameAfterAnimation.origin.y + mainImageViewFrameAfterAnimation.size.height + marginBetweenItems*2, width: mainImageViewFrameAfterAnimation.size.width, height: itemLabelHeight))
         
         var labelInHomeScreen = self.view.viewWithTag(itemLabelTagBase+aButton.tag) as? UILabel
         
@@ -225,26 +228,22 @@ class ViewController: UIViewController {
         
         
         UIView.animate(withDuration: 0.5) {
-            blackView.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+            self.blackView.backgroundColor = UIColor.black.withAlphaComponent(0.85)
             
             mainImageView.frame = mainImageViewFrameAfterAnimation
             
-
-            mainLabel.textColor = UIColor.white.withAlphaComponent(1)
-
-            
-            
+            self.uiProcessingAfterAnimation(aButton: aButton)
         }
-        
-        
-        
-
         
         
         
     }
     
-    
+    func uiProcessingAfterAnimation(aButton:UIButton) {
+        mainLabel.textColor = UIColor.white.withAlphaComponent(1)
+        
+        
+    }
 
 }
 
