@@ -27,6 +27,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     var mainLabel:UILabel = UILabel()
     var blackView:UIView = UIView()
+    var mainImageView:UIImageView = UIImageView()
+    var closeButton:UIButton = UIButton()
     
     var allItems:[[String:Any]] = []
     
@@ -36,12 +38,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         dlog(message: "app begins")
 
-        
-        //Notes: use https instead of http if not using mock server
-
-        //**correct link, correct para
-//            <-- GET /deliveries?offset=0
-//                --> GET /deliveries?offset=0 200 2,003ms 3.85kb
         
         Alamofire.request("http://localhost:8080/deliveries", method: .get, parameters: ["offset":"0"], encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
             
@@ -204,7 +200,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let mainImageViewframe = self.view.convert(aButtonImageViewFrame, from:itemView)
         dlog(message: "mainImageViewframe is \(mainImageViewframe)")
         
-        var mainImageView:UIImageView = UIImageView(frame: mainImageViewframe)
+        mainImageView = UIImageView(frame: mainImageViewframe)
         mainImageView.backgroundColor = UIColor.cyan
         
         if let sourceImageView:UIImageView = self.view.viewWithTag(itemImageViewTagBase+aButton.tag) as? UIImageView {
@@ -252,14 +248,31 @@ class ViewController: UIViewController, MKMapViewDelegate {
         blackView.addSubview(mainLabel)
         
         
+        //close button
+        closeButton = UIButton(type: .custom)
+        closeButton.frame = CGRect(x: mainImageViewFrameAfterAnimation.origin.x - 20,
+                                   y: mainImageViewFrameAfterAnimation.origin.y - 20,
+                                   width: 40,
+                                   height: 40)
+        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.addTarget(self, action: #selector(self.tappedCloseButton(aButton:)), for: .touchUpInside)
+        closeButton.alpha = 0
         
         
+        blackView.addSubview(closeButton)
+        
+        
+        
+        //animation after tap button
         UIView.animate(withDuration: 0.5) {
             self.blackView.backgroundColor = UIColor.black.withAlphaComponent(0.85)
             
-            mainImageView.frame = mainImageViewFrameAfterAnimation
+            self.mainImageView.frame = mainImageViewFrameAfterAnimation
+            
+            self.closeButton.alpha = 1
             
             self.uiProcessingAfterAnimation(aButton: aButton)
+            
         }
         
         
@@ -303,6 +316,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         blackView.addSubview(mainMap)
         
+        
+
+        
+        
+        
+    }
+    
+    func tappedCloseButton(aButton:UIButton) {
+        blackView.removeFromSuperview()
+        blackView = UIView()
     }
 
 }
