@@ -133,7 +133,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             
             updateImage(anImageView: itemImageView, urlString: singleItem["imageUrl"] as! String, currentIndex: index)
             
-            itemLabel.text = singleItem["description"] as! String
+            itemLabel.text = singleItem["description"] as? String
             itemLabel.tag = itemLabelTagBase + index
             
             itemLabel.font = UIFont(name: "HelveticaNeue-Light", size: 12)
@@ -188,7 +188,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
                 DispatchQueue.main.async {
                     if imageData != nil {
-                        image = UIImage(data: imageData as! Data)
+                        image = UIImage(data: imageData! as Data)
                         anImageView.image = image
                         
                         
@@ -197,7 +197,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
                         
                     } else {
                         dlog(message: "use cache images")
-                        let imageData: Data? = UserDefaults.standard.object(forKey: "\(currentIndex)") as! Data
+                        let imageData: Data? = UserDefaults.standard.object(forKey: "\(currentIndex)") as? Data
                         let image = UIImage(data: imageData!)
                         anImageView.image = image
                         
@@ -267,7 +267,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         mainLabel.textAlignment = .center
         mainLabel.textColor = UIColor.white.withAlphaComponent(0)
-        mainLabel.font = UIFont(name: "HelveticaNeue-Light", size: 20)
+        mainLabel.font = UIFont(name: "HelveticaNeue-Light", size: 17)
         
         blackView.addSubview(mainLabel)
         
