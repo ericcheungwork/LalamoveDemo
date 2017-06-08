@@ -13,7 +13,7 @@ import CoreLocation
 
 let screenSize = UIScreen.main.bounds
 let marginBetweenItems: CGFloat = 20.0
-let itemLabelHeight: CGFloat = 30.0
+let itemLabelHeight: CGFloat = 70.0
 let itemImageViewTagBase: Int = 100
 let itemLabelTagBase: Int = 200
 let mainImageDetailViewHeight: CGFloat = 200.0
@@ -28,7 +28,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     var mainLabel:UILabel = UILabel()
     var blackView:UIView = UIView()
     
-    var allItemInfo:[[String:Any]] = []
+    var allItems:[[String:Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,10 +92,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
         var startingPositionX:CGFloat = marginBetweenItems
         var startingPositionY:CGFloat = marginBetweenItems
         
-        //allItemInfo
+        allItems = receivedResult
         
         var index = 0
-        for singleItem:[String:Any] in receivedResult {
+        for singleItem:[String:Any] in allItems {
             print("singleItem: \(singleItem)")
             
             var itemWidthOrHeight:CGFloat = ((screenSize.width-60.0)/2.0)
@@ -225,7 +225,26 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         var labelInHomeScreen = self.view.viewWithTag(itemLabelTagBase+aButton.tag) as? UILabel
         
+
+        
         mainLabel.text = labelInHomeScreen?.text
+        mainLabel.numberOfLines = 0
+        
+        var index = 0
+        for singleItem:[String:Any] in allItems {
+            
+            if index == aButton.tag {
+                
+                let location:[String:Any] = singleItem["location"] as! [String : Any]
+                let addressString:String = location["address"] as! String
+                
+                mainLabel.text = mainLabel.text! + "\n" + addressString
+                break
+            }
+            
+            index = index + 1
+        }
+        
         mainLabel.textAlignment = .center
         mainLabel.textColor = UIColor.white.withAlphaComponent(0)
         mainLabel.font = UIFont(name: "HelveticaNeue-Light", size: 20)
@@ -250,22 +269,40 @@ class ViewController: UIViewController, MKMapViewDelegate {
     func uiProcessingAfterAnimation(aButton:UIButton) {
         mainLabel.textColor = UIColor.white.withAlphaComponent(1)
         
+        var lat:CLLocationDegrees = 0
+        var lng:CLLocationDegrees = 0
+        
+        var index = 0
+        for singleItem:[String:Any] in allItems {
+            
+            if index == aButton.tag {
+                
+                let location:[String:Any] = singleItem["location"] as! [String : Any]
+                lat = location["lat"] as! CLLocationDegrees
+                lng = location["lng"] as! CLLocationDegrees
+
+                break
+            }
+            
+            index = index + 1
+        }
         
         
         var mainMap: MKMapView = MKMapView(frame: CGRect(x: mainLabel.frame.origin.x,
-                                                        y: mainLabel.frame.origin.y + mainLabel.frame.size.height + marginBetweenItems,
+                                                        y: mainLabel.frame.origin.y + mainLabel.frame.size.height + marginBetweenItems*2,
                                                         width: mainLabel.frame.size.width,
                                                         height: mapViewHeight))
         
-        let center = CLLocationCoordinate2D(latitude: 22.319181, longitude: 114.170008)
+        let center = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mainMap.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 22.319181, longitude: 114.170008)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         mainMap.addAnnotation(annotation)
         
         blackView.addSubview(mainMap)
+        
     }
 
 }
