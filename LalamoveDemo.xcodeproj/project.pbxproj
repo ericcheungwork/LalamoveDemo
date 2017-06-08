@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		90C7EFB40D632D8AE095969A /* Pods_LalamoveDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADE82708471B5B194DA4DFF /* Pods_LalamoveDemo.framework */; };
+		D35275591EE9C83300DA64B0 /* 2 during animation.png in Resources */ = {isa = PBXBuildFile; fileRef = D35275561EE9C83300DA64B0 /* 2 during animation.png */; };
+		D352755A1EE9C83300DA64B0 /* 1 first view.png in Resources */ = {isa = PBXBuildFile; fileRef = D35275571EE9C83300DA64B0 /* 1 first view.png */; };
+		D352755B1EE9C83300DA64B0 /* 3 detail view.png in Resources */ = {isa = PBXBuildFile; fileRef = D35275581EE9C83300DA64B0 /* 3 detail view.png */; };
 		D3C7D1E91EE4060A00CA181F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1E81EE4060A00CA181F /* AppDelegate.swift */; };
 		D3C7D1EB1EE4060A00CA181F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7D1EA1EE4060A00CA181F /* ViewController.swift */; };
 		D3C7D1EE1EE4060A00CA181F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C7D1EC1EE4060A00CA181F /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 		9ADE82708471B5B194DA4DFF /* Pods_LalamoveDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LalamoveDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD365B86C0144BE4BCAD9806 /* Pods-LalamoveDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LalamoveDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C12A36D212D3A071C03622AF /* Pods-LalamoveDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LalamoveDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LalamoveDemo/Pods-LalamoveDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D35275561EE9C83300DA64B0 /* 2 during animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2 during animation.png"; sourceTree = "<group>"; };
+		D35275571EE9C83300DA64B0 /* 1 first view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1 first view.png"; sourceTree = "<group>"; };
+		D35275581EE9C83300DA64B0 /* 3 detail view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3 detail view.png"; sourceTree = "<group>"; };
 		D3C7D1E51EE4060A00CA181F /* LalamoveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LalamoveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C7D1E81EE4060A00CA181F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C7D1EA1EE4060A00CA181F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +106,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D35275551EE9C81700DA64B0 /* Screenshots for ref */ = {
+			isa = PBXGroup;
+			children = (
+				D35275571EE9C83300DA64B0 /* 1 first view.png */,
+				D35275561EE9C83300DA64B0 /* 2 during animation.png */,
+				D35275581EE9C83300DA64B0 /* 3 detail view.png */,
+			);
+			name = "Screenshots for ref";
+			sourceTree = "<group>";
+		};
 		D3C7D1DC1EE4060A00CA181F = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +149,7 @@
 				D3C7D1EF1EE4060A00CA181F /* Assets.xcassets */,
 				D3C7D1F11EE4060A00CA181F /* LaunchScreen.storyboard */,
 				D3C7D1F41EE4060A00CA181F /* Info.plist */,
+				D35275551EE9C81700DA64B0 /* Screenshots for ref */,
 			);
 			path = LalamoveDemo;
 			sourceTree = "<group>";
@@ -270,8 +287,11 @@
 			files = (
 				D3C7D1F31EE4060A00CA181F /* LaunchScreen.storyboard in Resources */,
 				D3C7D1F01EE4060A00CA181F /* Assets.xcassets in Resources */,
+				D352755A1EE9C83300DA64B0 /* 1 first view.png in Resources */,
 				D3C7D2171EE40D4300CA181F /* Podfile in Resources */,
+				D35275591EE9C83300DA64B0 /* 2 during animation.png in Resources */,
 				D3C7D1EE1EE4060A00CA181F /* Main.storyboard in Resources */,
+				D352755B1EE9C83300DA64B0 /* 3 detail view.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
