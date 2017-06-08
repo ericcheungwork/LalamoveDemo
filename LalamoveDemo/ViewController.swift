@@ -131,7 +131,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             
             //itemLabel.backgroundColor = UIColor.white
             
-            updateImage(anImageView: itemImageView, urlString: singleItem["imageUrl"] as! String)
+            updateImage(anImageView: itemImageView, urlString: singleItem["imageUrl"] as! String, currentIndex: index)
             
             itemLabel.text = singleItem["description"] as! String
             itemLabel.tag = itemLabelTagBase + index
@@ -178,7 +178,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     }
     
-    func updateImage(anImageView:UIImageView, urlString:String) {
+    func updateImage(anImageView:UIImageView, urlString:String, currentIndex:Int) {
         let imageURL = URL(string: urlString)
         var image: UIImage?
         if let url = imageURL {
@@ -191,8 +191,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
                         image = UIImage(data: imageData as! Data)
                         anImageView.image = image
                         
+                        
+                        UserDefaults.standard.set(UIImagePNGRepresentation(image!), forKey: "\(currentIndex)")
+
+                        
                     } else {
-                        image = nil
+                        dlog(message: "use cache images")
+                        var imageData: Data? = UserDefaults.standard.object(forKey: "\(currentIndex)") as! Data
+                        var image = UIImage(data: imageData!)
+                        anImageView.image = image
+                        
                     }
                 }
             }
