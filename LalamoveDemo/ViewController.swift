@@ -56,7 +56,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 break
                 
             case .failure(_):
-                print(response.result.error)
+                print(response.result.error!)
                 
                 dlog(message: "can't load the server data")
                 if let result = UserDefaults.standard.array(forKey: "allItems") as? [[String: Any]] {
@@ -99,7 +99,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.view.addSubview(scrollView)
         scrollView.isScrollEnabled = true
         
-        var scrollViewContentView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: marginBetweenItems))
+        let scrollViewContentView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: marginBetweenItems))
         
         var startingPositionX:CGFloat = marginBetweenItems
         var startingPositionY:CGFloat = marginBetweenItems
@@ -110,14 +110,14 @@ class ViewController: UIViewController, MKMapViewDelegate {
         for singleItem:[String:Any] in allItems {
             print("singleItem: \(singleItem)")
             
-            var itemWidthOrHeight:CGFloat = ((screenSize.width-60.0)/2.0)
+            let itemWidthOrHeight:CGFloat = ((screenSize.width-60.0)/2.0)
             
-            var itemView: UIView = UIView()
+            let itemView: UIView = UIView()
             itemView.frame = CGRect(x: startingPositionX, y: startingPositionY, width: itemWidthOrHeight, height: itemWidthOrHeight)
             //itemView.backgroundColor = UIColor.white
             
-            var itemImageView: UIImageView = UIImageView()
-            var itemLabel: UILabel = UILabel()
+            let itemImageView: UIImageView = UIImageView()
+            let itemLabel: UILabel = UILabel()
             
             
             
@@ -143,7 +143,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             itemView.addSubview(itemImageView)
             itemView.addSubview(itemLabel)
             
-            var itemOverlayButton: UIButton = UIButton()
+            let itemOverlayButton: UIButton = UIButton()
             itemOverlayButton.frame = CGRect(x: 0, y: 0, width: itemView.frame.size.width, height: itemView.frame.size.height)
 //            itemOverlayButton.backgroundColor = UIColor.blue
             itemOverlayButton.tag = index
@@ -197,8 +197,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
                         
                     } else {
                         dlog(message: "use cache images")
-                        var imageData: Data? = UserDefaults.standard.object(forKey: "\(currentIndex)") as! Data
-                        var image = UIImage(data: imageData!)
+                        let imageData: Data? = UserDefaults.standard.object(forKey: "\(currentIndex)") as! Data
+                        let image = UIImage(data: imageData!)
                         anImageView.image = image
                         
                     }
@@ -216,9 +216,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         
         //Beginning position of the main item image
-        var itemView = aButton.superview
+        let itemView = aButton.superview
         
-        var aButtonImageViewFrame: CGRect = CGRect(x: aButton.frame.origin.x, y: aButton.frame.origin.y, width: aButton.frame.size.width, height: aButton.frame.size.height - itemLabelHeight)
+        let aButtonImageViewFrame: CGRect = CGRect(x: aButton.frame.origin.x, y: aButton.frame.origin.y, width: aButton.frame.size.width, height: aButton.frame.size.height - itemLabelHeight)
         dlog(message: "aButtonImageViewFrame is \(aButtonImageViewFrame)")
         
         let mainImageViewframe = self.view.convert(aButtonImageViewFrame, from:itemView)
@@ -237,13 +237,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mainImageView.clipsToBounds = true
         
         
-        var mainImageViewFrameAfterAnimation:CGRect = CGRect(x: marginBetweenItems*2, y: marginBetweenItems*2, width: screenSize.width - marginBetweenItems*4, height: mainImageDetailViewHeight)
+        let mainImageViewFrameAfterAnimation:CGRect = CGRect(x: marginBetweenItems*2, y: marginBetweenItems*2, width: screenSize.width - marginBetweenItems*4, height: mainImageDetailViewHeight)
         
         
         //main label
         mainLabel = UILabel(frame: CGRect(x: mainImageViewFrameAfterAnimation.origin.x, y: mainImageViewFrameAfterAnimation.origin.y + mainImageViewFrameAfterAnimation.size.height + marginBetweenItems*2, width: mainImageViewFrameAfterAnimation.size.width, height: itemLabelHeight))
         
-        var labelInHomeScreen = self.view.viewWithTag(itemLabelTagBase+aButton.tag) as? UILabel
+        let labelInHomeScreen = self.view.viewWithTag(itemLabelTagBase+aButton.tag) as? UILabel
         
 
         
@@ -325,7 +325,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
         
         
-        var mainMap: MKMapView = MKMapView(frame: CGRect(x: mainLabel.frame.origin.x,
+        let mainMap: MKMapView = MKMapView(frame: CGRect(x: mainLabel.frame.origin.x,
                                                         y: mainLabel.frame.origin.y + mainLabel.frame.size.height + marginBetweenItems*2,
                                                         width: mainLabel.frame.size.width,
                                                         height: mapViewHeight))
