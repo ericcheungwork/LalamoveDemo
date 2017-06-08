@@ -10,7 +10,11 @@ import UIKit
 import Alamofire
 
 let screenSize = UIScreen.main.bounds
-let marginBetweenItems: CGFloat = 20
+let marginBetweenItems: CGFloat = 20.0
+let itemLabelHeight: CGFloat = 30.0
+let itemImageViewTagBase: Int = 100
+let itemLabelTagBase: Int = 200
+let mainImageDetailViewHeight: CGFloat = 250.0
 
 class ViewController: UIViewController {
     
@@ -92,7 +96,7 @@ class ViewController: UIViewController {
             var itemImageView: UIImageView = UIImageView()
             var itemLabel: UILabel = UILabel()
             
-            var itemLabelHeight: CGFloat = 30.0
+            
             
             itemImageView.frame = CGRect(x: 0, y: 0, width: itemView.frame.size.width, height: itemView.frame.size.height - itemLabelHeight)
             itemLabel.frame = CGRect(x: 0, y: itemImageView.frame.size.height, width: itemView.frame.size.width, height: itemLabelHeight)
@@ -100,12 +104,14 @@ class ViewController: UIViewController {
             itemImageView.backgroundColor = UIColor.lightGray
             itemImageView.contentMode = .scaleAspectFill
             itemImageView.clipsToBounds = true
+            itemImageView.tag = itemImageViewTagBase + index
             
             itemLabel.backgroundColor = UIColor.white
             
             updateImage(anImageView: itemImageView, urlString: singleItem["imageUrl"] as! String)
             
             itemLabel.text = singleItem["description"] as! String
+            itemLabel.tag = itemLabelTagBase + index
             
             itemLabel.font = UIFont(name: "HelveticaNeue-Light", size: 12)
             itemLabel.numberOfLines = 0
@@ -113,6 +119,16 @@ class ViewController: UIViewController {
             
             itemView.addSubview(itemImageView)
             itemView.addSubview(itemLabel)
+            
+            var itemOverlayButton: UIButton = UIButton()
+            itemOverlayButton.frame = CGRect(x: 0, y: 0, width: itemView.frame.size.width, height: itemView.frame.size.height)
+//            itemOverlayButton.backgroundColor = UIColor.blue
+            itemOverlayButton.tag = index
+            itemOverlayButton.addTarget(self, action: #selector(self.tappedItemOverlayButton(aButton:)), for: .touchUpInside)
+
+            
+            itemView.addSubview(itemOverlayButton)
+            
             
             scrollViewContentView.addSubview(itemView)
             
@@ -159,6 +175,76 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func tappedItemOverlayButton(aButton:UIButton) {
+        dlog(message: "#\(aButton.tag) Button pressed")
+        
+        var blackView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        blackView.backgroundColor = UIColor.black.withAlphaComponent(0)
+        self.view.addSubview(blackView)
+        
+        
+        //Beginning position of the main item image
+        var itemView = aButton.superview
+        
+        var aButtonImageViewFrame: CGRect = CGRect(x: aButton.frame.origin.x, y: aButton.frame.origin.y, width: aButton.frame.size.width, height: aButton.frame.size.height - itemLabelHeight)
+        dlog(message: "aButtonImageViewFrame is \(aButtonImageViewFrame)")
+        
+        let mainImageViewframe = self.view.convert(aButtonImageViewFrame, from:itemView)
+        dlog(message: "mainImageViewframe is \(mainImageViewframe)")
+        
+        var mainImageView:UIImageView = UIImageView(frame: mainImageViewframe)
+        mainImageView.backgroundColor = UIColor.cyan
+        
+        if let sourceImageView:UIImageView = self.view.viewWithTag(itemImageViewTagBase+aButton.tag) as? UIImageView {
+            mainImageView.image = sourceImageView.image
+            mainImageView.contentMode = .scaleAspectFill
+        }
+        
+        blackView.addSubview(mainImageView)
+        
+        mainImageView.clipsToBounds = true
+        
+        
+        var mainImageViewFrameAfterAnimation:CGRect = CGRect(x: marginBetweenItems*2, y: marginBetweenItems*2, width: screenSize.width - marginBetweenItems*4, height: mainImageDetailViewHeight)
+        
+        
+        //main label
+        var mainLabel:UILabel = UILabel(frame: CGRect(x: mainImageViewFrameAfterAnimation.origin.x, y: mainImageViewFrameAfterAnimation.origin.y + mainImageViewFrameAfterAnimation.size.height + marginBetweenItems*2, width: mainImageViewFrameAfterAnimation.size.width, height: itemLabelHeight))
+        
+        var labelInHomeScreen = self.view.viewWithTag(itemLabelTagBase+aButton.tag) as? UILabel
+        
+        mainLabel.text = labelInHomeScreen?.text
+        mainLabel.textAlignment = .center
+        mainLabel.textColor = UIColor.white.withAlphaComponent(0)
+        mainLabel.font = UIFont(name: "HelveticaNeue-Light", size: 20)
+        
+        blackView.addSubview(mainLabel)
+        
+        
+        
+        
+        UIView.animate(withDuration: 0.5) {
+            blackView.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+            
+            mainImageView.frame = mainImageViewFrameAfterAnimation
+            
+
+            mainLabel.textColor = UIColor.white.withAlphaComponent(1)
+
+            
+            
+        }
+        
+        
+        
+
+        
+        
+        
+    }
+    
+    
 
 }
 
