@@ -8,21 +8,27 @@
 
 import UIKit
 import Alamofire
+import MapKit
+import CoreLocation
 
 let screenSize = UIScreen.main.bounds
 let marginBetweenItems: CGFloat = 20.0
 let itemLabelHeight: CGFloat = 30.0
 let itemImageViewTagBase: Int = 100
 let itemLabelTagBase: Int = 200
-let mainImageDetailViewHeight: CGFloat = 250.0
+let mainImageDetailViewHeight: CGFloat = 200.0
+let mapViewHeight: CGFloat = 120.0
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, MKMapViewDelegate {
     
     var imageView: UIImageView = UIImageView()
     var scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
     
     var mainLabel:UILabel = UILabel()
     var blackView:UIView = UIView()
+    
+    var allItemInfo:[[String:Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +91,8 @@ class ViewController: UIViewController {
         
         var startingPositionX:CGFloat = marginBetweenItems
         var startingPositionY:CGFloat = marginBetweenItems
+        
+        //allItemInfo
         
         var index = 0
         for singleItem:[String:Any] in receivedResult {
@@ -243,6 +251,21 @@ class ViewController: UIViewController {
         mainLabel.textColor = UIColor.white.withAlphaComponent(1)
         
         
+        
+        var mainMap: MKMapView = MKMapView(frame: CGRect(x: mainLabel.frame.origin.x,
+                                                        y: mainLabel.frame.origin.y + mainLabel.frame.size.height + marginBetweenItems,
+                                                        width: mainLabel.frame.size.width,
+                                                        height: mapViewHeight))
+        
+        let center = CLLocationCoordinate2D(latitude: 22.319181, longitude: 114.170008)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mainMap.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 22.319181, longitude: 114.170008)
+        mainMap.addAnnotation(annotation)
+        
+        blackView.addSubview(mainMap)
     }
 
 }
